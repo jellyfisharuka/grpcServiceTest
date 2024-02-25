@@ -3,6 +3,7 @@ package main
 import (
 	"log/slog"
 	"os"
+	"sso/internal/app"
 	"sso/internal/config"
 )
 const (
@@ -22,6 +23,8 @@ func main() {
 	log.Debug("debug message")
 	log.Error("error message")
 	log.Warn("warn message")
+	application:= app.New(log, cfg.Grpc.Port, cfg.StoragePath, cfg.TokenTTL)
+	application.GRPCServer.MustRun()
 	//TODO: инициализировать логгер
 	//TODO: инициализировать приложение app
 	//TODO: запустить gRPC-сервер приложения
