@@ -4,16 +4,17 @@ import (
 	"flag"
 	"os"
 	"time"
+
 	"github.com/ilyakaznacheev/cleanenv"
 )
 
 type Config struct {
-	Env         string        `yaml:"env" env-required:"local"`
-	StoragePath string        `yaml:"storage_path" env-required:"./data"`
+	Env         string        `yaml:"env" env-default:"local"`
+	StoragePath string        `yaml:"storage_path" env-required:"true"`
 	TokenTTL    time.Duration `yaml:"token_ttl" env-required:"true"`
-	Grpc        GrpcConfig    `yaml:"gprc"`
+	GRPC        GRPCConfig    `yaml:"grpc"`
 }
-type GrpcConfig struct {
+type GRPCConfig struct {
 	Port    int           `yaml:"port"`
 	Timeout time.Duration `yaml:"timeout"`
 }
