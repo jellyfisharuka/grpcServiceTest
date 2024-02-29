@@ -42,7 +42,7 @@ func main() {
 	log.Info("stopping application", slog.String("signal", signal.String()))
 	//если в канале пусто и мы хотим прочитать из канала то мы зависнем пока канал не будет хоть чем то заполнен 
 	application.GRPCServer.Stop()
-	log.Info("application stopped")
+	log.Info("application stopped !!")
 }
 func setupLogger(env string) *slog.Logger {
 	var log *slog.Logger
